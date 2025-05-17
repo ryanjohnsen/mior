@@ -35,12 +35,12 @@ mpi-hello: $(BUILD_DIR)/mpi_hello.o | $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/mpi_hello $< $(LDFLAGS)
 	mpirun -np 2 $(BIN_DIR)/mpi_hello
 
-$(BUILD_DIR)/mpi_hello.o: $(SRC_DIR)/mpi_hello.c | $(BUILD_DIR)
+$(BUILD_DIR)/mpi_hello.o: $(TEST_DIR)/mpi_hello.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean rule
 clean:
-	rm -rf $(BUILD_DIR) $(BIN_DIR)
+	rm -rf $(BUILD_DIR)/* $(BIN_DIR)/*
 
 # Test rule (example)
 test: $(TARGET)
